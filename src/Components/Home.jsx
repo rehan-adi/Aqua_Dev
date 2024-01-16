@@ -1,11 +1,12 @@
 import React from 'react'
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 function Home() {
   return (
     <main className='h-[100vh]  w-auto text-black'>
         <div className='flex h-[95vh] w-auto relative justify-center pt-16 px-28 items-center'>
         <div className='mb-20 mr-32'>
-            <h4> 01/04 - Hover </h4>
+            <h4> 01/04 - Hover <IoArrowForwardOutline className='inline-block' /></h4>
         </div>
          <div className=''>
              <h3 className='ml-20 mb-2'><span className='font-semibold'>AQ</span><span className='text-white font-semibold'>UA_DEV</span></h3>
@@ -19,7 +20,7 @@ function Home() {
              <h4 className='uppercase font-semibold '>Good desigin is honest</h4>
          </div>
          <div className='absolute -rotate-90 flex bottom-6 left-24'>
-            <h1 className='uppercase text-base font-bold'><span className='text-gray-400'>Scroll</span> On</h1>
+            <h1 className='uppercase text-base font-extrabold'><span className='text-gray-400'>Scroll</span> on</h1>
          </div>
          </div>
     </main>
