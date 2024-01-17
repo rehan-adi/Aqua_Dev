@@ -24,8 +24,8 @@ function Home() {
      if (inView1) {
       Service1.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.2 } });
       Service2.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.4} });
-      ServiceA.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.1} });
-      ServiceB.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.1} });
+      ServiceA.start({ y: 0, opacity: 1, transition: { duration: 1.40, delay: 0.1} });
+      ServiceB.start({ y: 0, opacity: 1, transition: { duration: 1.40, delay: 0.1} });
       Service8.start({ x: 0, opacity: 1, transition: { duration: 0.50,} });
      }
    }, [inView1, Service1, Service2, ServiceA, ServiceB, Service8]);
@@ -68,6 +68,45 @@ function Home() {
       Contact5.start({ x: 0, opacity: 1, transition: { duration: 0.50,} });
      }
    }, [inView, Contact1, Contact2, Contact3, Contact4, Contact5]);
+
+
+   const Portfolio1 = useAnimation();
+   const Portfolio2 = useAnimation();
+   const Portfolio3 = useAnimation();
+   const Portfolio4 = useAnimation();
+   const Portfolio5 = useAnimation();
+ 
+   const [ref3, inView3] = useInView({
+     triggerOnce: true,
+     rootMargin: '50px -50px',
+   });
+ 
+   useEffect(() => {
+     if (inView3) {
+      Portfolio1.start({ opacity: 1, transition: { duration: 1.40, delay: 0.2 } });
+      Portfolio2.start({ opacity: 1, transition: { duration: 1.40, delay: 0.4} });
+      Portfolio3.start({ x: 0, opacity: 1, transition: { duration: 0.50, delay: 0.1} });
+      Portfolio4.start({ y: 0, opacity: 1, transition: { duration: 0.75, delay: 0.3} });
+      Portfolio5.start({ y: 0, opacity: 1, transition: { duration: 0.70, delay: 1.80} });
+     }
+   }, [inView3, Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5]);
+
+
+
+   const Lawra = useAnimation();
+ 
+   const [ref4, inView4] = useInView({
+     triggerOnce: true,
+     rootMargin: '50px -50px',
+   });
+ 
+   useEffect(() => {
+     if (inView4) {
+      Lawra.start({ y: 0, opacity: 1, transition: { duration: 0.70, delay: 1} });
+     }
+   }, [inView4, Lawra]);
+
+
 
   return (
     <main className='h-[777vh] w-auto text-black'>
@@ -141,19 +180,39 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
          </div>
          <div className='h-[250vh] mt-20 px-32 w-auto'>
              <div className='flex justify-between  items-center'>
-                <h2 className='text-lg font-medium'>PORTFOLIO</h2>
-                <h2 className='text-lg font-medium'>SELECT ALL PROJECTS <IoIosArrowRoundForward className='inline-block mb-1 text-4xl' /> </h2>
+                <motion.h2
+                  initial={{opacity: 0}}
+                  animate={Portfolio1}
+                  ref={ref3}  
+                className='text-lg font-medium'>PORTFOLIO</motion.h2>
+                <motion.h2
+                initial={{opacity: 0}}
+                animate={Portfolio2}
+                ref={ref3}   
+                className='text-lg font-medium'>SELECT ALL PROJECTS <IoIosArrowRoundForward className='inline-block mb-1 text-4xl' /> </motion.h2>
              </div>
              <div className='flex flex-col justify-center items-center'>
-             <div className='border-t-2 mt-6 border-black w-[1270px]'>
+             <motion.div
+              initial={{x: -80, opacity: 0 }} 
+              animate={Portfolio3}
+              ref={ref3}  
+             className='border-t-2 mt-6 border-black w-[1270px]'>
                  
-             </div>
+             </motion.div>
              </div>
              <div className='flex justify-center items-center'>
-                <h1 className='text-[130px] mt-24 font-extrabold'>SELECTED WORKS</h1>
+                <motion.h1 
+                 initial={{y: 88, opacity: 0}} 
+                 animate={Portfolio4}
+                 ref={ref3}  
+                className='text-[130px] mt-24 font-extrabold'>SELECTED WORKS</motion.h1>
              </div>
              <div className='flex items-center justify-center mt-16'>
-               <h1 className='text-[244px] line-3'>GAR <br /> ERLY</h1>
+               <motion.h1
+                initial={{y: 88, opacity: 0}} 
+                animate={Portfolio4}
+                ref={ref3}  
+               className='text-[244px] line-3'>GAR <br /> ERLY</motion.h1>
                <div className='bg-image flex justify-center items-center h-[80vh] w-[35vw]'>
                <img src="https://aquadev.site/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fganerly.6b9a94f2.gif&w=828&q=75" alt="" width={415} /> 
                </div>
@@ -167,7 +226,11 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
                          <img src="https://aquadev.site/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsebastian.0f9ad21c.gif&w=828&q=75" width={415} alt="" />
                  </div>
                  <div>
-                 <h1 className='text-[244px] line-3'>EBA <br /> TIAN</h1>
+                 <motion.h1
+                  initial={{y: 88, opacity: 0}} 
+                  animate={Lawra}
+                  ref={ref4}     
+                 className='text-[244px] line-3'>EBA <br /> TIAN</motion.h1>
                  </div>
              </div>
          </div>
