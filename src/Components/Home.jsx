@@ -1,15 +1,40 @@
 import React from 'react'
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { GiStarShuriken } from "react-icons/gi";
-import { motion } from 'framer-motion';
+import  {useEffect} from 'react'
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 function Home() {
+
+   const Contact1 = useAnimation();
+   const Contact2 = useAnimation();
+   const Contact3 = useAnimation();
+   const Contact4 = useAnimation();
+   const Contact5 = useAnimation();
+ 
+   const [ref, inView] = useInView({
+     triggerOnce: true,
+     rootMargin: '50px -50px',
+   });
+ 
+   useEffect(() => {
+     if (inView) {
+      Contact1.start({ x: 0, opacity: 1, transition: { duration: 1.5, delay: 0.2 } });
+      Contact2.start({ y: 0, opacity: 1, transition: { duration: 1, delay: 0.4} });
+      Contact3.start({ y: 0, opacity: 1, transition: { duration: 1, delay: 0.6} });
+      Contact4.start({ x: 0, opacity: 1, transition: { duration: 0.70, delay: 0.3} });
+      Contact5.start({ x: 0, opacity: 1, transition: { duration: 0.40, delay: 0.1} });
+     }
+   }, [inView, Contact1, Contact2, Contact3, Contact4, Contact5]);
+
   return (
-    <main className='h-[580vh] w-auto text-black'>
+    <main className='h-[777vh] w-auto text-black'>
         <div className='flex h-[100vh] w-auto relative justify-center pt-16 px-28 items-center'>
         <div className='mb-20 mr-32'>
             <motion.h4
+            className='font-semibold'
             initial={{opacity: 0, y: 30}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.5, delay: 0.70}} 
@@ -131,17 +156,37 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
          </div>
          <div className='h-[120vh] w-auto px-32 pt-40 text-base'>
          <div className='flex justify-between   items-center'>
-                <h2 className='text-lg font-medium'>CONTACT</h2>
+                <motion.h2
+                initial={{opacity: 0,}}
+                animate={Contact4}
+                ref={ref} 
+                className='text-lg font-medium'>CONTACT</motion.h2>
              </div>
              <div className='flex flex-col justify-center items-center'>
-             <div className='border-t-2 mt-6 border-black w-[1270px]'>
+             <motion.div
+             initial={{x: -80, opacity: 0 }} 
+             animate={Contact5}
+             ref={ref}
+             className='border-t-2 mt-6 border-black w-[1270px]'>
                   
-             </div>
+             </motion.div>
              </div>
              <div className='flex justify-center mt-36 items-center flex-col'>
-             <h3 className='text-sm '>WANT TO WORK TOGETHER ?</h3>
-              <h1 className='text-[175px] line-3 mt-12 font-extrabold'>SAY HI!</h1>
-              <h1 className='text-[111px] mt-20 font-bold'>HELLO@AQUADEV.SITE</h1>
+             <motion.h3
+             initial={{opacity: 0, }}
+             animate={Contact1}
+             ref={ref}
+             className='text-sm font-semibold '>WANT TO WORK TOGETHER ?</motion.h3>
+              <motion.h1
+              initial={{opacity: 0, y: 80}}
+              animate={Contact2}
+              ref={ref} 
+              className='text-[175px] line-3 mt-12 font-extrabold'>SAY HI!</motion.h1>
+              <motion.h1
+              initial={{opacity: 0, y: 80}}
+              animate={Contact3}
+              ref={ref}  
+              className='text-[111px] mt-20 font-bold'>HELLO@AQUADEV.SITE</motion.h1>
              </div>
          </div>
     </main>
