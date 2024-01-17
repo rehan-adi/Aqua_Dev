@@ -8,6 +8,46 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 function Home() {
 
+
+   const Service1 = useAnimation();
+   const Service2 = useAnimation();
+   const ServiceA = useAnimation();
+   const ServiceB = useAnimation();
+   const Service8 = useAnimation();
+ 
+   const [ref1, inView1] = useInView({
+     triggerOnce: true,
+     rootMargin: '50px -50px',
+   });
+ 
+   useEffect(() => {
+     if (inView1) {
+      Service1.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.2 } });
+      Service2.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.4} });
+      ServiceA.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.1} });
+      ServiceB.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.1} });
+      Service8.start({ x: 0, opacity: 1, transition: { duration: 0.50,} });
+     }
+   }, [inView1, Service1, Service2, ServiceA, ServiceB, Service8]);
+
+
+   const Service3 = useAnimation();
+   const Service4 = useAnimation();
+ 
+   const [ref2, inView2] = useInView({
+     triggerOnce: true,
+     rootMargin: '50px -50px',
+   });
+ 
+   useEffect(() => {
+     if (inView2) {
+      Service3.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.2 } });
+      Service4.start({ y: 0, opacity: 1, transition: { duration: 0.80, delay: 0.4} });
+     }
+   }, [inView2, Service3, Service4]);
+
+
+
    const Contact1 = useAnimation();
    const Contact2 = useAnimation();
    const Contact3 = useAnimation();
@@ -16,7 +56,7 @@ function Home() {
  
    const [ref, inView] = useInView({
      triggerOnce: true,
-     rootMargin: '50px -50px',
+     rootMargin: '80px -80px',
    });
  
    useEffect(() => {
@@ -25,7 +65,7 @@ function Home() {
       Contact2.start({ y: 0, opacity: 1, transition: { duration: 1, delay: 0.4} });
       Contact3.start({ y: 0, opacity: 1, transition: { duration: 1, delay: 0.6} });
       Contact4.start({ x: 0, opacity: 1, transition: { duration: 0.70, delay: 0.3} });
-      Contact5.start({ x: 0, opacity: 1, transition: { duration: 0.40, delay: 0.1} });
+      Contact5.start({ x: 0, opacity: 1, transition: { duration: 0.50,} });
      }
    }, [inView, Contact1, Contact2, Contact3, Contact4, Contact5]);
 
@@ -133,25 +173,54 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
          </div>
          <div className='h-[200vh] w-auto px-32 pt-16'>
                   <div className='flex justify-between   items-center'>
-                <h2 className='text-lg font-medium'>SERVICES</h2>
-                <h2 className='text-lg font-medium'>MORE ABOUT ME <IoIosArrowRoundForward className='inline-block mb-1 text-4xl' /> </h2>
+                <motion.h2
+                initial={{opacity: 0}}
+                animate={ServiceA}
+                ref={ref1} 
+                className='text-lg font-medium'>SERVICES</motion.h2>
+                <motion.h2
+                initial={{opacity: 0}}
+                animate={ServiceB}
+                ref={ref1}  
+                className='text-lg font-medium'>MORE ABOUT ME <IoIosArrowRoundForward className='inline-block mb-1 text-4xl' /> </motion.h2>
              </div>
              <div className='flex flex-col justify-center items-center'>
-             <div className='border-t-2 mt-6 border-black w-[1270px]'>
+             <motion.div
+              initial={{x: -80, opacity: 0 }} 
+              animate={Service8}
+              ref={ref1} 
+             className='border-t-2 mt-6 border-black w-[1270px]'>
                  
-             </div>
+             </motion.div>
              </div>
              <div>
-                <h1 className='text-[130px] line-3 mt-20 font-extrabold'>FRONTEND DEVELOPMENT</h1>
+                <motion.h1
+                 initial={{opacity: 0, y : 100}}
+                 animate={Service1}
+                 ref={ref1} 
+                className='text-[130px] line-3 mt-20 font-extrabold'> 
+                <span>FRONTEND</span> DEVELOPMENT</motion.h1>
              </div>
              <div className='ml-[575px]'>
-                <h1 className='text-[130px] line-3 mt-20 font-extrabold'> <span className='ml-20'>CREATIVE</span> DISIGNING</h1>
+                <motion.h1
+                 initial={{opacity: 0, y : 100}}
+                 animate={Service2}
+                 ref={ref1}  
+                className='text-[130px] line-3 mt-20 font-extrabold'> <span className='ml-20'>CREATIVE</span> DISIGNING</motion.h1>
              </div>
              <div>
-                <h1 className='text-[130px] line-3 mt-20 font-extrabold'>BACKEND ENGINEERING</h1>
+                <motion.h1
+                 initial={{opacity: 0, y : 100}}
+                 animate={Service3}
+                 ref={ref2}  
+                className='text-[130px] line-3 mt-20 font-extrabold'>BACKEND ENGINEERING</motion.h1>
              </div>
              <div className='ml-[520px]'>
-                <h1 className='text-[130px] line-3 mt-20 font-extrabold'><span className='ml-56'>MOBILE</span> DEVELOPER</h1>
+                <motion.h1
+                 initial={{opacity: 0, y : 100}}
+                 animate={Service4}
+                 ref={ref2}  
+                className='text-[130px] line-3 mt-20 font-extrabold'><span className='ml-60'>MOBILE</span> DEVELOPER</motion.h1>
              </div>
          </div>
          <div className='h-[120vh] w-auto px-32 pt-40 text-base'>
