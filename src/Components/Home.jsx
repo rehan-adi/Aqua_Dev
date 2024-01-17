@@ -6,7 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 function Home() {
   return (
-    <main className='h-[480vh] w-auto text-black'>
+    <main className='h-[580vh] w-auto text-black'>
         <div className='flex h-[100vh] w-auto relative justify-center pt-16 px-28 items-center'>
         <div className='mb-20 mr-32'>
             <motion.h4
@@ -106,7 +106,7 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
                  </div>
              </div>
          </div>
-         <div className='h-screen w-auto px-32 pt-16'>
+         <div className='h-[200vh] w-auto px-32 pt-16'>
                   <div className='flex justify-between   items-center'>
                 <h2 className='text-lg font-medium'>SERVICES</h2>
                 <h2 className='text-lg font-medium'>MORE ABOUT ME <IoIosArrowRoundForward className='inline-block mb-1 text-4xl' /> </h2>
@@ -125,8 +125,23 @@ USERUSER<span className='font-extrabold'> EXPERIENCES.</span>
              <div>
                 <h1 className='text-[130px] line-3 mt-20 font-extrabold'>BACKEND ENGINEERING</h1>
              </div>
-             <div className='ml-[530px]'>
+             <div className='ml-[520px]'>
                 <h1 className='text-[130px] line-3 mt-20 font-extrabold'><span className='ml-56'>MOBILE</span> DEVELOPER</h1>
+             </div>
+         </div>
+         <div className='h-[120vh] w-auto px-32 pt-40 text-base'>
+         <div className='flex justify-between   items-center'>
+                <h2 className='text-lg font-medium'>CONTACT</h2>
+             </div>
+             <div className='flex flex-col justify-center items-center'>
+             <div className='border-t-2 mt-6 border-black w-[1270px]'>
+                  
+             </div>
+             </div>
+             <div className='flex justify-center mt-36 items-center flex-col'>
+             <h3 className='text-sm '>WANT TO WORK TOGETHER ?</h3>
+              <h1 className='text-[175px] line-3 mt-12 font-extrabold'>SAY HI!</h1>
+              <h1 className='text-[111px] mt-20 font-bold'>HELLO@AQUADEV.SITE</h1>
              </div>
          </div>
     </main>
