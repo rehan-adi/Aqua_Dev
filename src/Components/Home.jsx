@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { GiStarShuriken } from "react-icons/gi";
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { HiMenuAlt4 } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 
 function Home() {
 
@@ -134,6 +136,14 @@ function Home() {
          Text7.start({ opacity: 1, y: 0, transition: { duration: 1.40, delay: 2 } });
       }
    }, [inView5, Text1, Text2, Text3, Text4, Text5, Text6, Text7]);
+
+
+   const [isMenuBarVisible, setIsMenuBarVisible] = useState(false);
+
+ 
+   const toggleMenuBar = () => {
+     setIsMenuBarVisible(!isMenuBarVisible);
+   };
 
 
 
@@ -374,6 +384,47 @@ function Home() {
                   className='text-[111px] mt-20 font-bold'>HELLO@AQUADEV.SITE</motion.h1>
             </div>
          </div>
+         <motion.button
+        className='fixed bottom-16 right-10 bg-black text-white p-4 rounded-full'
+        onClick={toggleMenuBar}
+        whileHover={{ scale: 1.3}}
+      >
+        <HiMenuAlt4 />
+      </motion.button>
+
+      {isMenuBarVisible && (
+        <div className='fixed top-0 right-0 z-50 w-full h-full bg-gray-800 bg-opacity-75 flex items-center justify-end'>
+          <motion.div
+           initial={{ x: '100%' }}
+           animate={{ x: 0 }}
+           exit={{ x: '100%', transition: { ease: 'easeInOut', duration: 4 } }}
+           transition={{ duration: 0.5 }} 
+          className='bg-black flex justify-center pl-20 flex-col items-start text-white w-[40vw] h-screen rounded-md'>
+            <h2 className='text-xs font-normal tracking-widest mb-16 underline opacity-50 uppercase'>Navigation</h2>
+             <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.5 }} 
+             className='flex gap-10 mb-7 flex-col'>
+               <h1 className='text-6xl font-medium'>Home</h1>
+               <h1 className='text-6xl font-medium'>About</h1>
+               <h1 className='text-6xl font-medium'>Work</h1>
+             </motion.div>
+             <div className='mt-16'>
+                <h1 className='text-xs font-normal tracking-widest underline opacity-50 uppercase mb-4'>Get in touch</h1>
+             </div>
+             <div className='flex gap-5'>
+                <p className='text-sm'>Linkdin</p>
+                <p className='text-sm'>GitHub</p>
+                <p className='text-sm'>Twitter</p>
+             </div>
+            <button className='bg-white text-black rounded-full p-4  ml-[440px] mt-10' onClick={toggleMenuBar}>
+            <RxCross2 />
+            </button>
+          </motion.div>
+        </div>
+      )}
       </main>
    )
 }

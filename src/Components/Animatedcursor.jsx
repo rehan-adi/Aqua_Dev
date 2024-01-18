@@ -8,12 +8,11 @@ function Animatedcursor() {
     <AnimatedCursor
       innerSize={35}
       outerSize={4}
-      color='1, 1, 1'
+      color='255, 215, 0' 
       outerAlpha={0.5}
       innerScale={8}
       outerScale={0}
       clickables={[
-        'a',
         'input[type="text"]',
         'input[type="email"]',
         'input[type="number"]',
@@ -22,8 +21,6 @@ function Animatedcursor() {
         'label[for]',
         'select',
         'textarea',
-        'button',
-        '.link'
       ]}
 
      />
