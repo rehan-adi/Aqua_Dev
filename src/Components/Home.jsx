@@ -400,7 +400,11 @@ function Home() {
            exit={{ x: '100%', transition: { ease: 'easeInOut', duration: 4 } }}
            transition={{ duration: 0.5 }} 
           className='bg-black flex justify-center pl-20 flex-col items-start text-white w-[40vw] h-screen rounded-md'>
-            <h2 className='text-xs font-normal tracking-widest mb-16 underline opacity-50 uppercase'>Navigation</h2>
+            <motion.h2
+              initial={{opacity: 0, x : 200}}
+              animate={{opacity: 1, x: 0}}
+              transition={{duration: 0.50}}
+            className='text-xs font-normal tracking-widest mb-16 underline opacity-50 uppercase'>Navigation</motion.h2>
              <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -412,12 +416,28 @@ function Home() {
                <h1 className='text-6xl font-medium'>Work</h1>
              </motion.div>
              <div className='mt-16'>
-                <h1 className='text-xs font-normal tracking-widest underline opacity-50 uppercase mb-4'>Get in touch</h1>
+                <motion.h1
+                initial={{opacity: 0, x : 200}}
+                animate={{opacity: 1, x: 0}}
+                transition={{duration: 0.80}} 
+                className='text-xs font-normal tracking-widest underline opacity-50 uppercase mb-4'>Get in touch</motion.h1>
              </div>
              <div className='flex gap-5'>
-                <p className='text-sm'>Linkdin</p>
-                <p className='text-sm'>GitHub</p>
-                <p className='text-sm'>Twitter</p>
+                <motion.p
+                initial={{opacity: 0, x: 50}}
+                animate={{opacity: 1, x: 0}}
+                transition={{duration: 0.20, delay: 0.2}}
+                className='text-sm'>Linkdin</motion.p>
+                <motion.p
+                 initial={{opacity: 0, x: 50}}
+                 animate={{opacity: 1, x: 0}}
+                 transition={{duration: 0.20, delay: 0.5}}  
+                className='text-sm'>GitHub</motion.p>
+                <motion.p
+                 initial={{opacity: 0, x: 50}}
+                 animate={{opacity: 1, x: 0}}
+                 transition={{duration: 0.20, delay: 0.8}}  
+                className='text-sm'>Twitter</motion.p>
              </div>
             <button className='bg-white text-black rounded-full p-4  ml-[440px] mt-10' onClick={toggleMenuBar}>
             <RxCross2 />
