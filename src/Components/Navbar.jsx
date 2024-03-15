@@ -20,7 +20,7 @@ function Navbar() {
   }).format(currentTime);
 
   return (
-    <nav className='w-full flex justify-between  z-50 fixed items-center px-32 h-[12vh] text-black'>
+    <nav className='w-full flex justify-between z-50 fixed items-center px-6 lg:px-32 h-[10vh] lg:h-[12vh] text-black'>
          <motion.h1
          initial={{opacity: 0}}
          animate={{opacity: 1}}
@@ -30,7 +30,7 @@ function Navbar() {
           initial={{opacity: 0}}
           animate={{opacity: 1}}
           transition={{delay: 0.25}}  
-         className='uppercase font-medium text-sm'>Available For Full Time</motion.h3>
+         className='uppercase font-medium lg:flex hidden text-sm'>Available For Full Time</motion.h3>
          <motion.button
           initial={{opacity: 0}}
           animate={{opacity: 1}}
