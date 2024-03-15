@@ -9,7 +9,7 @@ function App() {
     <>
      <Navbar />
      <Animatedcursor />
-     {/* <Home /> */}
+     <Home />
      <Fotter />
     </>
   )
